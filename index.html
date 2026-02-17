@@ -3,105 +3,140 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Untuk Dilaa 💗</title>
+<title>for dilaa 🫰</title>
+
 <style>
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins', Arial, sans-serif;
+}
+
 body {
     margin: 0;
-    padding: 0;
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #ff9ecf, #ffcce6);
+    height: 100vh;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    text-align: center;
     overflow: hidden;
 }
 
-.container {
+.card {
     background: white;
-    padding: 30px;
+    width: 90%;
+    max-width: 380px;
+    padding: 25px;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    max-width: 350px;
-    animation: fadeIn 1.5s ease;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+    animation: slideUp 1.2s ease;
 }
 
 h1 {
-    color: #ff4da6;
+    color: #ff4d6d;
+    margin-bottom: 10px;
 }
 
 p {
-    color: #444;
-    font-size: 15px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
 }
 
 button {
-    background: #ff4da6;
-    border: none;
-    padding: 10px 20px;
-    color: white;
-    border-radius: 20px;
     margin-top: 15px;
+    padding: 12px 22px;
+    border: none;
+    border-radius: 25px;
+    background: #ff4d6d;
+    color: white;
+    font-size: 15px;
     cursor: pointer;
-    font-size: 14px;
     transition: 0.3s;
 }
 
 button:hover {
-    background: #ff1a8c;
+    transform: scale(1.07);
 }
 
-@keyframes fadeIn {
-    from {opacity: 0; transform: translateY(20px);}
-    to {opacity: 1; transform: translateY(0);}
+.hidden {
+    display: none;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .heart {
     position: absolute;
-    color: pink;
-    animation: float 5s linear infinite;
+    color: rgba(255,255,255,0.7);
+    animation: float 6s linear infinite;
 }
 
 @keyframes float {
-    from {transform: translateY(100vh);}
-    to {transform: translateY(-10vh);}
+    from { transform: translateY(100vh); }
+    to { transform: translateY(-10vh); }
 }
 </style>
 </head>
+
 <body>
 
-<div class="container">
-    <h1>dilaa </h1>
-    <p>
-        Haii sahabat paling lucu dan menggemaskan 😭<br><br>
-        Aku mau minta maaf yaa... kemarin aku ga sengaja ngebentak kamu.<br>
-        Bukan karena kamu tidak bisa apa apa, tapi aku cuma bercanda karena kamu sangat lucu dan menggemaskan ketika sedang marah 😭<br><br>
-        Kamu itu penting banget buat aku, jangan sampe hal kecil bikin persahabatan kita rusak 😣.<br><br>
-        Maafin aku yaa Dilaa 🥺💐
+<audio id="music">
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_6b36db09d0.mp3" type="audio/mpeg">
+</audio>
+
+<div class="card">
+    <h1>dilaa 💕</h1>
+
+    <p id="text1">
+        Maafin aku ya…  
+        aku ga sengaja ngebentak kamu 😔
     </p>
 
-    <button onclick="showSurprise()">klik kalau kamu masih mau kita bersahabat 😉</button>
+    <button onclick="nextStep()">next 👉</button>
+
+    <p id="text2" class="hidden">
+        Bukan karena kamu tidak bisa apa apa,  
+        tapi aku hanya bercanda karena kamu sangat lucu dan menggemaskan ketika sedang marah 🥰
+    </p>
+
+    <p id="text3" class="hidden">
+        Kamu penting banget buat aku,  
+        jadi aku bikin ini biar kamu tau  
+        aku beneran menyesal.
+    </p>
+
+    <p id="text4" class="hidden">
+        aku berharap…  
+        kita akan tetap bersahabat sampai selamanya 🤍
+    </p>
 </div>
 
-<audio id="bgm" src="https://www.bensound.com/bensound-music/bensound-romantic.mp3"></audio>
-
 <script>
-function showSurprise() {
-    alert("SURPRISEEE 💗\n\nAku janji traktir kamu es krim + ga bakal ngebentak lagi 😭🍦\n\nBestie forever yaaa!");
-    document.getElementById("bgm").play();
+let step = 0;
+const music = document.getElementById("music");
+
+function nextStep() {
+    step++;
+    if (step === 1) {
+        document.getElementById("text2").classList.remove("hidden");
+        music.play();
+    }
+    if (step === 2) {
+        document.getElementById("text3").classList.remove("hidden");
+    }
+    if (step === 3) {
+        document.getElementById("text4").classList.remove("hidden");
+    }
 }
 
-for (let i = 0; i < 20; i++) {
-    let heart = document.createElement("div");
-    heart.className = "heart";
-    heart.innerHTML = "💗";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.fontSize = Math.random() * 20 + 10 + "px";
-    heart.style.animationDuration = Math.random() * 3 + 2 + "s";
-    document.body.appendChild(heart);
-}
-</script>
-
-</body>
-</html>
+for (
+    
