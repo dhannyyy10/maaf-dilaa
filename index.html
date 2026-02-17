@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Untuk Dilaa 💗</title>
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #ff9ecf, #ffcce6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    overflow: hidden;
+}
+
+.container {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    max-width: 350px;
+    animation: fadeIn 1.5s ease;
+}
+
+h1 {
+    color: #ff4da6;
+}
+
+p {
+    color: #444;
+    font-size: 15px;
+}
+
+button {
+    background: #ff4da6;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 20px;
+    margin-top: 15px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #ff1a8c;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+.heart {
+    position: absolute;
+    color: pink;
+    animation: float 5s linear infinite;
+}
+
+@keyframes float {
+    from {transform: translateY(100vh);}
+    to {transform: translateY(-10vh);}
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>dilaa </h1>
+    <p>
+        Haii sahabat paling lucu dan menggemaskan 😭<br><br>
+        Aku mau minta maaf yaa... kemarin aku ga sengaja ngebentak kamu.<br>
+        Bukan karena kamu tidak bisa apa apa, tapi aku cuma bercanda karena kamu sangat lucu dan menggemaskan ketika sedang marah 😭<br><br>
+        Kamu itu penting banget buat aku, jangan sampe hal kecil bikin persahabatan kita rusak 😣.<br><br>
+        Maafin aku yaa Dilaa 🥺💐
+    </p>
+
+    <button onclick="showSurprise()">klik kalau kamu masih mau kita bersahabat 😉</button>
+</div>
+
+<audio id="bgm" src="https://www.bensound.com/bensound-music/bensound-romantic.mp3"></audio>
+
+<script>
+function showSurprise() {
+    alert("SURPRISEEE 💗\n\nAku janji traktir kamu es krim + ga bakal ngebentak lagi 😭🍦\n\nBestie forever yaaa!");
+    document.getElementById("bgm").play();
+}
+
+for (let i = 0; i < 20; i++) {
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "💗";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = Math.random() * 20 + 10 + "px";
+    heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+    document.body.appendChild(heart);
+}
+</script>
+
+</body>
+</html>
