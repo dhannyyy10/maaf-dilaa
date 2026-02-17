@@ -3,140 +3,179 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>for dilaa 🫰</title>
-
+<title>dilaa🫰</title>
 <style>
-* {
-    box-sizing: border-box;
-    font-family: 'Poppins', Arial, sans-serif;
-}
+* { box-sizing: border-box; margin:0; padding:0; }
 
 body {
-    margin: 0;
-    height: 100vh;
-    background: linear-gradient(135deg, #ff758c, #ff7eb3);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+  font-family: 'Arial', sans-serif;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb);
+  background-size: 400% 400%;
+  animation: bgAnim 15s ease infinite;
 }
 
+/* background gradient animation */
+@keyframes bgAnim {
+  0% {background-position:0% 50%;}
+  50% {background-position:100% 50%;}
+  100% {background-position:0% 50%;}
+}
+
+/* card */
 .card {
-    background: white;
-    width: 90%;
-    max-width: 380px;
-    padding: 25px;
-    border-radius: 20px;
-    text-align: center;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.25);
-    animation: slideUp 1.2s ease;
+  position: relative;
+  background: rgba(255,255,255,0.95);
+  padding: 30px;
+  border-radius: 25px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+  z-index: 2;
 }
 
 h1 {
-    color: #ff4d6d;
-    margin-bottom: 10px;
+  color: #ff4d6d;
+  margin-bottom: 15px;
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.2);
 }
 
 p {
-    font-size: 16px;
-    line-height: 1.6;
-    color: #333;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+  margin: 12px 0;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+p.active {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 button {
-    margin-top: 15px;
-    padding: 12px 22px;
-    border: none;
-    border-radius: 25px;
-    background: #ff4d6d;
-    color: white;
-    font-size: 15px;
-    cursor: pointer;
-    transition: 0.3s;
+  margin-top: 20px;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #ff4d6d, #ff7eb3);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+  transition: 0.3s;
 }
 
 button:hover {
-    transform: scale(1.07);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.3);
 }
 
-.hidden {
-    display: none;
-}
-
-@keyframes slideUp {
-    from {
-        opacity: 0;
-        transform: translateY(60px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.heart {
-    position: absolute;
-    color: rgba(255,255,255,0.7);
-    animation: float 6s linear infinite;
+/* floating hearts */
+.heart, .sparkle {
+  position: absolute;
+  font-size: 18px;
+  animation: float 6s linear infinite;
+  pointer-events: none;
+  opacity: 0.7;
 }
 
 @keyframes float {
-    from { transform: translateY(100vh); }
-    to { transform: translateY(-10vh); }
+  from { transform: translateY(0) rotate(0deg); }
+  to { transform: translateY(-120vh) rotate(360deg); }
+}
+
+/* confetti pieces */
+.confetti {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: #fff;
+  border-radius: 50%;
+  opacity: 0.8;
+  pointer-events: none;
+  animation: confettiFall 3s linear infinite;
+}
+
+@keyframes confettiFall {
+  0% { transform: translateY(-10px) rotate(0deg); opacity:1;}
+  100% { transform: translateY(100vh) rotate(360deg); opacity:0;}
 }
 </style>
 </head>
-
 <body>
 
-<audio id="music">
-    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_6b36db09d0.mp3" type="audio/mpeg">
+<audio id="music" loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_6b36db09d0.mp3" type="audio/mpeg">
 </audio>
 
 <div class="card">
-    <h1>dilaa 💕</h1>
-
-    <p id="text1">
-        Maafin aku ya…  
-        aku ga sengaja ngebentak kamu 😔
-    </p>
-
-    <button onclick="nextStep()">next 👉</button>
-
-    <p id="text2" class="hidden">
-        Bukan karena kamu tidak bisa apa apa,  
-        tapi aku hanya bercanda karena kamu sangat lucu dan menggemaskan ketika sedang marah 🥰
-    </p>
-
-    <p id="text3" class="hidden">
-        Kamu penting banget buat aku,  
-        jadi aku bikin ini biar kamu tau  
-        aku beneran menyesal.
-    </p>
-
-    <p id="text4" class="hidden">
-        aku berharap…  
-        kita akan tetap bersahabat sampai selamanya 🤍
-    </p>
+  <h1>dilaa </h1>
+  <p class="active">eh… maafin aku ya 😅 aku ga sengaja bentak kamu…</p>
+  <p>…sumpah aku sebenernya ga bermaksud untuk ngebentak kamu 😔, aku cuma bercanda aja 😁</p>
+  <p>karena kamu itu lucu dan menggemaskan ketika sedang marah 😍</p>
+  <p>Pokoknya, tetep jadi sahabat aku ya 🤍 jangan bete terus dong 😉</p>
+  <button onclick="nextText()">Lanjut 👉</button>
 </div>
 
 <script>
-let step = 0;
+const texts = document.querySelectorAll("p");
+let index = 0;
 const music = document.getElementById("music");
 
-function nextStep() {
-    step++;
-    if (step === 1) {
-        document.getElementById("text2").classList.remove("hidden");
-        music.play();
-    }
-    if (step === 2) {
-        document.getElementById("text3").classList.remove("hidden");
-    }
-    if (step === 3) {
-        document.getElementById("text4").classList.remove("hidden");
-    }
+function nextText() {
+  texts[index].classList.remove("active");
+  index++;
+  if(index < texts.length) {
+    texts[index].classList.add("active");
+    if(index === 1) music.play();
+  } else {
+    // trigger confetti at end
+    createConfetti();
+  }
 }
 
-for (
-    
+// floating hearts
+for(let i=0;i<25;i++){
+  const h = document.createElement("div");
+  h.className="heart";
+  h.innerHTML="💗";
+  h.style.left=Math.random()*100+"vw";
+  h.style.animationDuration=(Math.random()*3+4)+"s";
+  h.style.fontSize=(Math.random()*12+14)+"px";
+  document.body.appendChild(h);
+}
+
+// sparkles
+for(let i=0;i<20;i++){
+  const s = document.createElement("div");
+  s.className="sparkle";
+  s.innerHTML="✨";
+  s.style.left=Math.random()*100+"vw";
+  s.style.animationDuration=(Math.random()*4+3)+"s";
+  s.style.fontSize=(Math.random()*10+10)+"px";
+  document.body.appendChild(s);
+}
+
+// confetti
+function createConfetti(){
+  for(let i=0;i<50;i++){
+    const c = document.createElement("div");
+    c.className="confetti";
+    c.style.left=Math.random()*100+"vw";
+    c.style.backgroundColor=`hsl(${Math.random()*360},100%,75%)`;
+    c.style.animationDuration=(Math.random()*2+2)+"s";
+    document.body.appendChild(c);
+  }
+}
+</script>
+
+</body>
+</html>
